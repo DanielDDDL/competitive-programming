@@ -7,7 +7,7 @@
 # isFull - retorna True se a pilha esta cheia; caso contrário, False
 import random #usado na inseração
 
-class Pilha:
+class Stack:
     def __init__ (self, qnt_items):
         self.qnt_items = qnt_items
         self.items = [None] * qnt_items
@@ -46,17 +46,20 @@ class Pilha:
         return info
 
 def main ():
-    # -------------- TESTES --------------- #
-    TAMANHO = 10
-    p = Pilha(TAMANHO) # definindo que a pilha possui dez items
-    print ("---- IMPRIMINDO INSERCAO ----")
-    for i in range (TAMANHO):
+    # -------------- TESTS --------------- #
+    size = int(input("Type in the size of the stack: "))
+    p = Stack(size) # definindo que a pilha possui dez items
+    print ("---- PRINTIN INSERTION ----")
+    for i in range (size):
         #exibindo os itens da lista conforme eles sao adicinados
         p.push(random.randint(1,10))
         print (p.top_item())
 
-    print ("---- IMPRIMINDO REMOCAO ----")
-    for i in range (TAMANHO):
+    #printing all the items inserted
+    print (p)
+
+    print ("---- PRINTING REMOVAL ----")
+    for i in range (size):
         print (p.top_item())
         p.pop()
 
