@@ -8,7 +8,7 @@
 
 import random # for tests purposes
 
-class Fila:
+class Queue:
     def __init__(self, qnt_items):
         self.qnt_items = qnt_items
         self.items = [None] * qnt_items
@@ -65,21 +65,25 @@ class Fila:
         info += "\nMax quantity of items allowed: " + str(self.qnt_items)
         return info
 
-# ---------- TESTES ------------ #
+# ---------- TESTS ------------ #
 def main ():
-    TAMANHO = 10
-    f = Fila(TAMANHO)
-    print ("------IMPRIMINDO REMOCAO-------")
-    for i in range (TAMANHO):
+    size = int(input("Type in the size of the queue: "))
+    f = Queue(size)
+    print ("------PRINTING INSERTION-------")
+    for i in range (size):
         f.enqueue(random.randint(1,10))
         print (f.first())
 
-    print ("------IMPRIMINDO REMOCAO-------")
-    for i in range (TAMANHO):
+    #printing all the items of queue
+    print (f)
+
+    print ("------PRINTING REMOVAL-------")
+    for i in range (size):
         print (f.first())
         f.dequeue()
 
-
+    #printing all the items of queue
+    print (f)
 
 if __name__ == "__main__":
     main()
